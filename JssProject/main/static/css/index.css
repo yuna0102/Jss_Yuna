@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    padding: 50;
+    /* 초기화함 */
+}
+
+.make_jss{
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.plus_btn{
+    flex: 1;
+}
+
+p{
+    flex: 1;
+}
