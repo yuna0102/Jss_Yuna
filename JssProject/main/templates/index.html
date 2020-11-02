@@ -10,18 +10,24 @@
 
 <body>
     <div class="make_jss">
-        <div class="plus_btn">
-            +
-        </div>
+        <a href="{% url 'create' %}">
+            <div class="plus_btn">
+                +
+            </div>
+        </a>
+        
 
         <p>자기소개서 작성</p>
     </div>
 
-    <div class="">
-        <p>자기소개서 제목</p>
-        <p>자기소개서 내용</p>
-        <p> 날짜</p>
-    </div>
+    {% for jss in all_jss %}
+    <div class="all_jss">
+        <p>{{jss.title}}</p>
 
+        <p>{{jss.content}}</p>
+
+        <p>{{jss.updated_at|date:"Y년 m월 d일 D"}}</p>
+    </div>
+    {% endfor %}
 </body>
 </html>
