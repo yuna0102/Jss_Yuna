@@ -1,22 +1,29 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자소설 닷컴</title>
-    <link rel="stylesheet" types="text/css" href="{% static 'css/index.css' %}" />
-</head>
 
-<body>
+
+{% block head %}
+    <link rel="stylesheet" types="text/css" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">
+        <button>로그아웃</button>
+    </a>
+
+    안녕하세요! {{user}}님!
+
+    {% else %}
     <a href="{% url 'signup' %}">
         <button>회원가입</button>
     </a>
     <a href="{% url 'login' %}">
         <button>로그인</button>
     </a>
-
-    안녕하세요! {{user}}님!
+    
+    {% endif %}
+    
 
     <div class="make_jss">
         <a href="{% url 'create' %}">
@@ -41,5 +48,4 @@
     </div>
     </a>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
