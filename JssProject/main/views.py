@@ -18,3 +18,7 @@ def create(request):
             return redirect('index')
     jss_form = JssForm()
     return render(request, 'create.html', {'jss_form' : jss_form})
+
+def detail(request, jss_id):
+    my_jss = Jasoseol.objects.get(pk=jss_id)
+    return render(request, 'detail.html', {'my_jss' : my_jss})

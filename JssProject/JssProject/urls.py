@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import index, create
+from main.views import index, create, detail
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('create/', create, name="create"),
+    path('detail/<int:jss_id>', detail, name="detail"),
 ]
