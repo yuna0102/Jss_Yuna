@@ -39,7 +39,11 @@
     {% for jss in all_jss %}
     <a href="{% url 'detail' jss.id %}">
     <div class="all_jss">
+
+        <p>{{jss.author}}</p>
+
         <p>{{jss.id}}</p>
+        
         <p>{{jss.title}}</p>
 
         <p>{{jss.content}}</p>

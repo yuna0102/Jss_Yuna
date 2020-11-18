@@ -5,7 +5,7 @@ class JssForm(forms.ModelForm):
 
     class Meta:
         model = Jasoseol
-        fields = ('title', 'content',)
+        fields = ('title', 'content')
     
     def __init__(self, *args, **kwargs):
         #super라는 것은 부모 클래스의 요소를 가져올 수 있는 것임
