@@ -10,6 +10,10 @@ def index(request):
     all_jss = Jasoseol.objects.all()
     return render(request, 'index.html', {'all_jss' : all_jss})
 
+def my_index(request):
+    my_jss = Jasoseol.objects.filter(author=request.user)
+    return render(request, 'index.html', {'all_jss' : my_jss})
+
 @login_required(login_url='/login/')
 def create(request):
     #POST에 관련한 함수도 create에서 다 처리를 하고 싶기 때문에 여기다 추가
@@ -28,6 +32,7 @@ def create(request):
     jss_form = JssForm()
     return render(request, 'create.html', {'jss_form' : jss_form})
 
+@login_required(login_url='/login/')
 def detail(request, jss_id):
     # try:
     #     my_jss = Jasoseol.objects.get(pk=jss_id)
